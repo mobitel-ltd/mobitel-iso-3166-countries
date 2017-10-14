@@ -1,0 +1,41 @@
+{
+  "name": "mobitel-iso-3166-countries",
+  "version": "1.0.0",
+  "description": "NodeJs module based on ISO-3166 for validate and get basic info by country",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "eslint --quiet --ignore-pattern '/test/' .",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobitel-ltd/mobitel-iso-3166-countries.git"
+  },
+  "keywords": [
+    "iso-3166",
+    "country",
+    "code",
+    "validate",
+    "get",
+    "mobitel"
+  ],
+  "author": "Dmitry Furman aka PragmaWolf, Mobitel Ltd <pragmawolf@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mobitel-ltd/mobitel-iso-3166-countries/issues"
+  },
+  "homepage": "https://github.com/mobitel-ltd/mobitel-iso-3166-countries#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-google": "^0.9.1",
+    "mocha": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  }
+}
