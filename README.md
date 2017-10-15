@@ -13,6 +13,7 @@ Using the module in previous versions of NodeJs does not guarantee correct works
     * [.list](#list)
     * [.validate()](#validate)
     * [.get()](#get)
+    * [.getCodeList()](#get-code-list)
 * [Testing](#testing)
 * [License](#license)
 
@@ -24,6 +25,11 @@ npm i --save mobitel-iso-3166-countries
 [<p align="right">up to navigation</p>](#navigation)
 
 ## <a name="example">Example</a>
+> Now for each country exist:
+> * **country** - Country name
+> * **alpha2**- Alphabetic code of country (2 symbols)
+> * **alpha3** - Alphabetic code of country (3 symbols)
+> * **numeric** - Numeric code of country
 
 ```javascript
 const isoCountries = required('mobitel-iso-3166-countries');
@@ -43,6 +49,17 @@ const dataNum = isoCountries.get('004'); //=> {country: 'Afghanistan', alpha2: '
 const noData2 = isoCountries.get('ZY'); //=> null
 const noData3 = isoCountries.get('ZYX'); //=> null
 const noDataNum = isoCountries.get('000'); //=> null
+
+// get list of codes
+const listOfCodes1 = isoCountries.getCodeList('alpha3'); //=> ['AFG', ...]
+const listOfCodes2 = isoCountries.getCodeList('alpha3', 'numeric'); //=> ['AFG', ..., '004', ...]
+const listOfCodes3 = isoCountries.getCodeList(['alpha3']); //=>  ['AFG', ...]
+const listOfCodes4 = isoCountries.getCodeList(['alpha3', 'numeric']); //=> ['AFG', ..., '004', ...]
+
+const listOfCodes5 = isoCountries.getCodeList('unknown'); //=> null
+const listOfCodes7 = isoCountries.getCodeList(['unknown']); //=>  null
+const listOfCodes6 = isoCountries.getCodeList('unknown', 'numeric'); //=> null
+const listOfCodes8 = isoCountries.getCodeList(['unknown', 'numeric']); //=> null
 ```
 [<p align="right">up to navigation</p>](#navigation)
 
@@ -90,6 +107,29 @@ const noDataNum = isoCountries.get('000'); //=> null
 ```
 [<p align="right">up to navigation</p>](#navigation)
 
+### <a name="get-code-list">.getCodeList(codeName[, codeName]|[codeName[, codeName]])</a>
+Arguments - `String|String[]` - country code name. Can accept variants:
+* `codeName1`
+* `codeName1, codeName2`
+* `[codeName1]`
+* `[codeName1, codeName2]`
+
+Return array of all exist codes from arguments or `null`.
+
+Example
+```javascript
+const listOfCodes1 = isoCountries.getCodeList('alpha3'); //=> ['AFG', ...]
+const listOfCodes2 = isoCountries.getCodeList('alpha3', 'numeric'); //=> ['AFG', ..., '004', ...]
+const listOfCodes3 = isoCountries.getCodeList(['alpha3']); //=>  ['AFG', ...]
+const listOfCodes4 = isoCountries.getCodeList(['alpha3', 'numeric']); //=> ['AFG', ..., '004', ...]
+
+const listOfCodes5 = isoCountries.getCodeList('unknown'); //=> null
+const listOfCodes7 = isoCountries.getCodeList(['unknown']); //=>  null
+const listOfCodes6 = isoCountries.getCodeList('unknown', 'numeric'); //=> null
+const listOfCodes8 = isoCountries.getCodeList(['unknown', 'numeric']); //=> null
+```
+[<p align="right">up to navigation</p>](#navigation)
+
 ## <a name="testing">Test</a>
 
     npm run test
@@ -99,3 +139,4 @@ const noDataNum = isoCountries.get('000'); //=> null
 MIT License.
 Copyright (c) 2017 Mobitel Ltd
 [<p align="right">up to navigation</p>](#navigation)
+
