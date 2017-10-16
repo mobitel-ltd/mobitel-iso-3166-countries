@@ -1,6 +1,6 @@
 {
   "name": "mobitel-iso-3166-countries",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "NodeJs module based on ISO-3166 for validate and get basic info by country",
   "main": "index.js",
   "directories": {
